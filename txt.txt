@@ -18,3 +18,5 @@ something called observable (same as promise) and its a class inside the library
 reactive forms treat all the form as a form group and each
 in
 put as a form control
+
+//ngsubmit prevent the reload that happens in the form

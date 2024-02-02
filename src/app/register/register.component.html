@@ -1,17 +1,47 @@
 <div class="w-75 mx-auto py-3">
-  <form [formGroup]="registerForm">
-    <div class="row">
+  <form (ngSubmit)="submitRegisterForm(registerForm)" [formGroup]="registerForm">
+    <div class="row mt-2">
       <div class="col py-1">
-        <input formControlName="first_name" type="text" class="form-control" placeholder="First name">
+        <input formControlName="first_name" type="text" class="form-control" placeholder="First name" />
+        <div *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched" class="alert alert-danger p-1">
+          <p  *ngIf="registerForm.get('first_name')?.getError('required')" class="m-0" >firstname require</p>
+          <p  *ngIf="registerForm.get('first_name')?.getError('minlength')" class="m-0" >firstname minimum</p>
+          <p  *ngIf="registerForm.get('first_name')?.getError('maxlength')" class="m-0" >firstname maximum</p>
+        </div>
       </div>
+
+
+
       <div class="col py-1">
-        <input formControlName="last_name" type="text" class="form-control" placeholder="Last name">
+        <input formControlName="last_name" type="text" class="form-control" placeholder="Last name" />
+        <div *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched" class="alert alert-danger p-1">
+          <p  *ngIf="registerForm.get('last_name')?.getError('required')" class="m-0" >lastname require</p>
+          <p  *ngIf="registerForm.get('last_name')?.getError('minlength')" class="m-0" >lastname minimum</p>
+          <p  *ngIf="registerForm.get('last_name')?.getError('maxlength')" class="m-0" >lastname maximum</p>
+        </div>
       </div>
     </div>
-      <label for="exampleInputEmail1">Email address</label>
-      <input formControlName="email" type="email" class="form-control py-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      <label  for="exampleInputPassword1">Password</label>
-      <input formControlName="password" type="password" class="form-control py-2" id="exampleInputPassword1" placeholder="Password">
+    <label for="exampleInputAge" class="mt-3">age</label>
+    <input formControlName="age" type="number" class="form-control" id="exampleInputAge" placeholder="Enter age" />
+    <div *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.touched" class="alert alert-danger p-1">
+      <p  *ngIf="registerForm.get('age')?.getError('required')" class="m-0" >age require</p>
+      <p  *ngIf="registerForm.get('age')?.getError('min')" class="m-0" >age minimum</p>
+      <p  *ngIf="registerForm.get('age')?.getError('max')" class="m-0" >age maximum</p>
+    </div>
+    <label for="exampleInputEmail1" class="mt-3">Email address</label>
+    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+      aria-describedby="emailHelp" placeholder="Enter email" />
+      <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger p-1">
+        <p  *ngIf="registerForm.get('email')?.getError('required')" class="m-0" >email is require</p>
+        <p  *ngIf="registerForm.get('email')?.getError('email')" class="m-0" >email is not valid</p>
+      </div>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br />
+    <label for="exampleInputPassword1" class="mt-3">Password</label>
+    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
+      placeholder="Password" />
+
+    <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info text-light rounded-5 mt-4" type="submit">
+      Register
+    </button>
   </form>
 </div>
