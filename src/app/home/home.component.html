@@ -1,0 +1,55 @@
+<app-child [nameFromPrent]="userName" [friends]="homeUsers"></app-child>
+<h1 [style.backgroundColor]="user.age > 30 ? mainColor : secondColor">
+  home works!
+</h1>
+<!-- one way data binding (from typescript to html) -->
+<h4>Name: {{ user.name }}</h4>
+<h5>Age: {{ user.age }}</h5>
+<img [width]="imgWidth" [src]="imgSrc" />
+<!-- <button (click)="welcome($event)">hello</button> -->
+<button (click)="changeToggleTheme()">hello</button>
+
+<!-- i'm gonna call the method welcome if the key up
+on w only -->
+<input (keyup.w)="welcome()" />
+<h2 [style]="toggleTheme == true ? lightTheme : darkTheme">lightTheme</h2>
+
+<table
+  *ngIf="homeUsers.length > 0; else hambozo"
+  class="w-75 mx-auto text-center"
+>
+  <thead>
+    <th></th>
+    <th>Name</th>
+    <th>age</th>
+    <th>salary</th>
+    <th>isEven</th>
+  </thead>
+  <tbody>
+    <!-- i can print the index by use the index property but i have to put it in a variable -->
+    <!-- even is true in even loops and false in the other loops -->
+    <!-- even is used when i want to make style in table -->
+    <!-- same as even thereis odd , last , first-->
+    <tr
+      [style.backgroundColor]="isEven == true ? '#ccc' : ''"
+      *ngFor="let friend of homeUsers; let i = index; let isEven = even"
+    >
+      <td>{{ i }}</td>
+      <td>{{ friend.name }}</td>
+      <td>{{ friend.age }}</td>
+      <td>{{ friend.salary }}</td>
+      <td>{{ isEven }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ngif -->
+<!-- ngif is taking a boolean expression if it tru it removes the element -->
+<!-- i can use the else in the filteration in the film for adults i'm gonna disappear it -->
+<h2 *ngIf="userAge > 30" class="text-center">home component</h2>
+
+<ng-template #hambozo>
+  <h1>nothing inside the table</h1>
+</ng-template>
+
+<button (click)="changeName()">Change Name</button>

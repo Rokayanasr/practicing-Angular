@@ -1,0 +1,20 @@
+//i have data that i want to transform between components not related to each other
+so i'm gonna make service
+// to call the api in
+angular i have to import the http
+client module
+// to call the api in the service i have to make http client
+
+//there is 3 scopes for the services provide in the root (for all the app) , in the component for every component , on in module for each module
+
+// dependency injection بدل ما اcall ال class بشكل مباشر بحقنه من برا في البراميتر
+
+//rxjs is a libatay to handle asyn
+chronus and reactive actions (api) and inside it
+something called observable (same as promise) and its a class inside the library
+
+//to make reactive forms
+1-import reactive forms module in app.module
+reactive forms treat all the form as a form group and each
+in
+put as a form control

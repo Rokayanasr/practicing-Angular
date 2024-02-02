@@ -1,0 +1,21 @@
+<table
+  class="w-75 mx-auto text-center"
+>
+  <thead>
+    <th></th>
+    <th>Name</th>
+    <th>age</th>
+    <th>salary</th>
+  </thead>
+  <tbody>
+    <tr
+      [style.backroundColor]="isEven == true ? '#ccc' : ''"
+      *ngFor="let friend of homeUsers; let i = index; let isEven = even"
+    >
+      <td>{{ i }}</td>
+      <td>{{ friend.name }}</td>
+      <td>{{ friend.age }}</td>
+      <td>{{ friend.salary }}</td>
+    </tr>
+  </tbody>
+</table>

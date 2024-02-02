@@ -1,0 +1,11 @@
+<div class="conatiner">
+  <div class="row">
+    <div class="col-md-2" *ngFor="let movie of allMovies">
+      <div class="movie">
+        <h1>{{ movie.title }}</h1>
+        <p>{{ movie.overview }}</p>
+        <img [src]="imgPrefix+movie.poster_path" alt="">
+      </div>
+    </div>
+  </div>
+</div>
