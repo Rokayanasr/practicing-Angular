@@ -21,7 +21,7 @@ export class HomeComponent {
   homeUsers: User[] = [];
   mainColor: string = '#09c';
   secondColor: string = 'grey';
-  userName: string = 'ahmed ali';
+  userName: string = 'Rokaya Nasr';
   userAge: number = 34;
   imgSrc: string = './../../assets/images/1.jpeg';
   imgWidth: number = 300;
@@ -41,7 +41,7 @@ export class HomeComponent {
   }
 
   user: User = {
-    name: 'ahmed',
+    name: 'roka',
     age: 34,
     salary: 45543,
   };
